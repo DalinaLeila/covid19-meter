@@ -8,6 +8,7 @@
   --mainWhite: #f8f9f8;
   --darkGreen: #535849;
   --mainRed: #e64d4d;
+  --green: #3b8d68;
 }
 
 .App {
@@ -109,6 +110,22 @@
   border-radius: 0.25rem;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  position: relative;
+  height: 50vh;
+  width: 60vw;
+  margin-bottom: 60px;
+}
+
+.pie-chart {
+  background-color: var(--mainWhite);
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  position: relative;
+
+  height: 20vh;
+  width: 20vw;
+  margin-bottom: 60px;
 }
 
 .overviewCard {

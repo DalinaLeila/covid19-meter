@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Chart from "./Chart";
+import PieChart from "./PieChart";
+
 import axios from "axios";
 import "./App.css";
 import checkCountryCode from "./checkCountryCode";
@@ -89,7 +91,7 @@ class CountryDetails extends Component {
               </div>
             </div>
           </Main>
-          <Main className="col" color="var(--mainYellow)">
+          <Main className="col" color="var(--green)">
             <div>
               <h4>Recovered</h4>
               <div className="flex-col">
@@ -105,6 +107,11 @@ class CountryDetails extends Component {
           </Main>
         </Row>
         <Chart timeline={timeline} />
+        <PieChart
+          timeline={timeline}
+          select={select}
+          numberWithCommas={this.numberWithCommas}
+        />
       </div>
     );
   }

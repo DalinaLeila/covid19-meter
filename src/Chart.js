@@ -55,12 +55,12 @@ class Chart extends Component {
             {
               label: "Recovered",
               // lineTension: 0.1,
-              borderColor: "#efb81f",
-              backgroundColor: "#efb81f",
-              pointBorderColor: "#efb81f",
+              borderColor: "#3b8d68",
+              backgroundColor: "#3b8d68",
+              pointBorderColor: "#3b8d68",
               pointBackgroundColor: "#fff",
-              pointHoverBackgroundColor: "#efb81f",
-              pointHoverBorderColor: "#efb81f",
+              pointHoverBackgroundColor: "#3b8d68",
+              pointHoverBorderColor: "#3b8d68",
               borderCapStyle: "butt",
               borderDash: [],
               borderDashOffset: 0.0,
@@ -106,8 +106,6 @@ class Chart extends Component {
       <div className="chart">
         <Line
           data={this.state.chartData}
-          width={500}
-          height={500}
           options={{
             title: {
               display: true,
@@ -130,11 +128,23 @@ class Chart extends Component {
                 {
                   gridLines: {
                     color: true
+                  },
+
+                  ticks: {
+                    beginAtZero: true,
+                    userCallback: function(value, index, values) {
+                      value = value.toString();
+                      value = value.split(/(?=(?:...)*$)/);
+                      value = value.join(",");
+                      return value;
+                    }
                   }
                 }
               ]
             },
-            maintainAspectRatio: false
+            responsive: true,
+            maintainAspectRatio: true,
+            responsiveAnimationDuration: 0.3
           }}
         />
       </div>

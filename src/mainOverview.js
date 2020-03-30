@@ -18,7 +18,7 @@ const MainOverview = props => {
           <h2>{props.numberWithCommas(props.overview.deaths)}</h2>
         </div>
       </Main>
-      <Main overallCard color="var(--mainYellow)">
+      <Main overallCard color="var(--green)">
         <div>
           <h4>Recovered</h4>
           <h2>{props.numberWithCommas(props.overview.recovered)}</h2>
