@@ -1,38 +1,161 @@
+:root {
+  --mainBlack: #01050a;
+  --mainText: rgba(0, 0, 0, 0.87);
+  --mainBlue: #7b95b5;
+  --mainYellow: #efb81f;
+  --mainGrey: #9aa0a6;
+  --mainGreen: #6f785c;
+  --mainWhite: #f8f9f8;
+  --darkGreen: #535849;
+  --mainRed: #e64d4d;
+}
+
 .App {
-  text-align: center;
+  background-color: #f1f1f1;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav {
+  height: 50px;
+  background-color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  color: var(--mainText);
+  border-bottom: 2px solid #d2d2d2;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.mainOverview {
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.dateCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 100px;
+  background-color: var(--mainWhite);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  margin: 20px 0;
+  border-radius: 0.25rem;
+}
+.countryCard {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 10px;
+  text-decoration: none;
+  color: var(--mainText);
+  border-bottom: 1px solid gainsboro;
+  background-color: White;
+}
+
+.countryCard p {
+  font-weight: lighter;
+  font-size: small;
+}
+
+.cases {
+  color: var(--mainBlue);
+}
+
+.deaths {
+  color: var(--mainRed);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  /* flex-direction: column; */
+  flex: 1 1 auto;
+  margin: 0 50px 0px 0;
+  max-height: min-content;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.wrapper {
+  width: 400px;
+}
+
+.country-list {
+  height: 250px;
+  background-color: var(--mainWhite);
+  /* width: 400px; */
+  overflow-y: scroll;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 0.25rem;
+}
+
+.search-function {
+  background-color: var(--mainWhite);
+  /* width: 400px; */
+  display: flex;
+  justify-content: space-evenly;
+
+  padding: 20px 0;
+  border-radius: 0.25rem;
+}
+
+.search-function input {
+  padding: 10px 20px;
+  width: 200px;
+  border-radius: 5px;
+}
+.chart {
+  background-color: var(--mainWhite);
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.overviewCard {
+  width: 300px;
+  background-color: var(--mainWhite);
+  padding: 1.5rem;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  margin-bottom: 24px;
+  border-radius: 0.25rem;
+  height: 170px;
+  color: var(--mainText);
+}
+
+.overviewCard p {
+  font-weight: lighter;
+}
+
+.overviewCard:nth-last-child(2) {
+  margin: 0 40px;
+}
+
+.overviewCard div {
+  float: right;
+}
+
+.flex-col {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-left: 20px;
+  /* align-items: center; */
 }
 
-.App-link {
-  color: #61dafb;
+.flex-row {
+  display: flex;
+  flex-direction: row;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.containerOverview {
+  width: 400px;
+}
+
+.bold {
+  font-weight: 500;
+}
+
+#details {
+  overflow-y: scroll;
+  height: calc(100vh - 50px);
 }
