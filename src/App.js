@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 import { Link, Switch, Route } from "react-router-dom";
-import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
 import Countries from "./Countries";
