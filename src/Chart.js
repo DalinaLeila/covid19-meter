@@ -120,14 +120,14 @@ class Chart extends Component {
               xAxes: [
                 {
                   gridLines: {
-                    display: false
+                    color: "#f1f1f1"
                   }
                 }
               ],
               yAxes: [
                 {
                   gridLines: {
-                    color: true
+                    color: "#f1f1f1"
                   },
 
                   ticks: {

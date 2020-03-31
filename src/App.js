@@ -108,7 +108,7 @@ class App extends Component {
       <div className="App">
         <Navigation />
         <div className="flex-row">
-          <div className="flex-col">
+          <div className="flex-col left-view">
             <Timer />
             <MainOverview
               numberWithCommas={this.numberWithCommas}
@@ -122,7 +122,7 @@ class App extends Component {
               countries={countries}
             />
           </div>
-          <div>
+          <div className="right-view">
             <Route
               exact
               path="/"

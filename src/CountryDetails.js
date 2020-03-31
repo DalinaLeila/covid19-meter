@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Chart from "./Chart";
 import PieChart from "./PieChart";
-
+import { countryCodes } from "./checkCountryCode";
+import Rates from "./Rates";
 import axios from "axios";
 import "./App.css";
-import checkCountryCode from "./checkCountryCode";
+import { checkCountryCode } from "./checkCountryCode";
 import { Hr, Main } from "./Hr";
 import { Row, Col, Container } from "react-bootstrap";
 
@@ -63,13 +64,29 @@ class CountryDetails extends Component {
   render() {
     const { timeline, select } = this.state;
     console.log(timeline);
+    console.log(select);
 
     if (!select.cases && !select.deaths && !select.recovered) {
       return <div></div>;
     }
     return (
       <div id="details">
-        <div>
+        <div className="flex-row flex-center">
+          {!countryCodes[select.country] ? (
+            <img
+              width="50px"
+              src={require("./assets/flags/unknown.svg")}
+              alt=""
+            />
+          ) : (
+            <img
+              width="50px"
+              src={require(`./assets/flags/${countryCodes[
+                select.country
+              ].toLowerCase()}.svg`)}
+              alt=""
+            />
+          )}
           <h1>{select.country}</h1>
         </div>
         <Row className="mainOverview">
@@ -107,11 +124,14 @@ class CountryDetails extends Component {
           </Main>
         </Row>
         <Chart timeline={timeline} />
-        <PieChart
-          timeline={timeline}
-          select={select}
-          numberWithCommas={this.numberWithCommas}
-        />
+        <div className="container-stats flex-row flex-space-between ">
+          <PieChart
+            timeline={timeline}
+            select={select}
+            numberWithCommas={this.numberWithCommas}
+          />
+          <Rates select={select} />
+        </div>
       </div>
     );
   }

@@ -1,4 +1,7 @@
 import styled from "styled-components";
+export const Rate = styled.h2`
+  color: ${props => props.color};
+`;
 
 export const Hr = styled.hr`
   background-color: ${props => props.color};

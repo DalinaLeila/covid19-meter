@@ -38,7 +38,7 @@ class PieChart extends Component {
           options={{
             legend: {
               display: true,
-              position: "left"
+              position: "top"
             },
             responsive: true,
             maintainAspectRatio: true,

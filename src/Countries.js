@@ -3,7 +3,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import CountryDetails from "./CountryDetails";
 import "./App.css";
 import MainOverview from "./mainOverview";
-
+import { countryCodes } from "./checkCountryCode";
 class Countries extends Component {
   render() {
     return (
@@ -27,6 +27,7 @@ class Countries extends Component {
           </div>
           <div className="country-list">
             {this.props.countries.map((country, index) => {
+              console.log(countryCodes[country.country]);
               return (
                 <Link
                   onClick={this.props.resetSearch}
@@ -35,13 +36,24 @@ class Countries extends Component {
                   to={`/countries/${country.country}`}
                 >
                   <div>
-                    {/* <img
-                style="height: 30px; width: 40px;"
-                className="ng-tns-c28-0 ng-star-inserted"
-                src="assets/flags/cn.svg"
-                alt="China"
-              /> */}
-                    <h5>{country.country}</h5>
+                    <div className="flex-row">
+                      {!countryCodes[country.country] ? (
+                        <img
+                          width="40px"
+                          src={require("./assets/flags/unknown.svg")}
+                          alt=""
+                        />
+                      ) : (
+                        <img
+                          width="40px"
+                          src={require(`./assets/flags/${countryCodes[
+                            country.country
+                          ].toLowerCase()}.svg`)}
+                          alt=""
+                        />
+                      )}
+                      <h5>{country.country}</h5>
+                    </div>
                     <p>
                       <span className="bold cases">
                         {this.props.numberWithCommas(country.cases)} Cases
