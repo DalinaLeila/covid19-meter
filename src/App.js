@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+
 import { Link, Switch, Route } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
 import Countries from "./Countries";
 import MainOverview from "./mainOverview";
-import Navigation from "./Navbar";
+import Navigation from "./Navigation";
 import CountryDetails from "./CountryDetails";
 import Timer from "./Timer";
 class App extends Component {
@@ -79,27 +80,6 @@ class App extends Component {
   }
 
   render() {
-    //     country: "China"
-    // cases: 81439
-    // todayCases: 45
-    // deaths: 3300
-    // todayDeaths: 5
-    // recovered: 75448
-    // active: 2691
-    // critical: 742
-    // casesPerOneMillion: 57
-    // deathsPerOneMillion: 2
-    {
-      /* <h3>{country.country}</h3>
-          <h5>Cases: {country.cases}</h5>
-          <h5>Today Cases: {country.todayCases}</h5>
-          <h5>Deaths: {country.deaths}</h5>
-          <h5>Today Deaths: {country.todayDeaths}</h5> */
-    }
-    {
-      /* <h5>Recovered: {country.recovered}</h5>
-          <h5>Critical: {country.critical}</h5> */
-    }
     const { overview, countries } = this.state;
     if (!overview.cases && !overview.deaths && !overview.recovered) {
       return <div></div>;
@@ -107,7 +87,7 @@ class App extends Component {
     return (
       <div className="App">
         <Navigation />
-        <div className="flex-row">
+        <div className="flex-row dashboard">
           <div className="flex-col left-view">
             <Timer />
             <MainOverview

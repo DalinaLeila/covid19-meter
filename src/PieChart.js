@@ -34,15 +34,25 @@ class PieChart extends Component {
     return (
       <div className="pie-chart">
         <Pie
+          height={200}
+          width={400}
           data={this.state.chartData}
           options={{
+            maintainAspectRatio: false,
+            responsive: false,
+            responsiveAnimationDuration: 0.3,
             legend: {
-              display: true,
-              position: "top"
-            },
-            responsive: true,
-            maintainAspectRatio: true,
-            responsiveAnimationDuration: 0.3
+              position: "left",
+              labels: {
+                boxWidth: 10
+              }
+            }
+            // legend: {
+            //   display: true,
+            //   position: "top"
+            // },
+            // responsive: true,
+            // maintainAspectRatio: true,
           }}
         />
       </div>

@@ -74,12 +74,14 @@ class CountryDetails extends Component {
         <div className="flex-row flex-center">
           {!countryCodes[select.country] ? (
             <img
+              className="flag"
               width="50px"
               src={require("./assets/flags/unknown.svg")}
               alt=""
             />
           ) : (
             <img
+              className="flag"
               width="50px"
               src={require(`./assets/flags/${countryCodes[
                 select.country
@@ -123,7 +125,6 @@ class CountryDetails extends Component {
             </div>
           </Main>
         </Row>
-        <Chart timeline={timeline} />
         <div className="container-stats flex-row flex-space-between ">
           <PieChart
             timeline={timeline}
@@ -132,6 +133,7 @@ class CountryDetails extends Component {
           />
           <Rates select={select} />
         </div>
+        <Chart timeline={timeline} />
       </div>
     );
   }
