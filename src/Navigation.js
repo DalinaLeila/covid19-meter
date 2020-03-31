@@ -12,7 +12,7 @@ const Navigation = () => {
           alt="coronavirus"
         />
         <Link href="#home">
-          <h2>CoronaMeter</h2>
+          <h2>Covid19Meter</h2>
         </Link>
       </div>
       {/* <div className="nav-links">
