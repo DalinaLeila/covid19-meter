@@ -48,11 +48,17 @@ class Countries extends Component {
                       <img
                         className="flag"
                         width="40px"
-                        src={require(`./assets/flags/${countryCodes[
-                          country.country
-                        ].toLowerCase()}.svg`)}
+                        src={require("./assets/flags/unknown.svg")}
                         alt=""
                       />
+                      // <img
+                      //   className="flag"
+                      //   width="40px"
+                      //   src={require(`./assets/flags/${countryCodes[
+                      //     country.country
+                      //   ].toLowerCase()}.svg`)}
+                      //   alt=""
+                      // />
                     )}
                     <h5>{country.country}</h5>
                   </div>
