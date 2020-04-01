@@ -4,111 +4,107 @@ import { Bar, Line, Pie } from "react-chartjs-2";
 import "./App.css";
 class Chart extends Component {
   state = {
-    chartData: {},
-    middle: ""
+    chartData: {}
   };
 
-  componentDidMount() {
+  setData = () => {
+    let deaths = this.props.timeline.map(el => {
+      return el.deaths;
+    });
+
+    let cases = this.props.timeline.map(el => {
+      return el.cases;
+    });
+
+    let recovered = this.props.timeline.map(el => {
+      return el.recovered;
+    });
+
     let dates = this.props.timeline.map(el => {
       return moment(el.date).format("MMM D");
     });
 
     this.setState({
-      middle: dates[Math.round((dates.length - 1) / 2)]
+      // middle: dates[Math.round((dates.length - 1) / 2)],
+      chartData: {
+        labels: dates,
+
+        datasets: [
+          {
+            label: "Cases",
+            // lineTension: 0.1,
+
+            backgroundColor: "#7b95b5",
+            borderColor: "#7b95b5",
+            borderCapStyle: "butt",
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: "miter",
+            pointBorderColor: "#7b95b5",
+            pointBackgroundColor: "#fff",
+            // pointBorderWidth: 1,
+            // pointHoverRadius: 5,
+            pointHoverBackgroundColor: "#7b95b5",
+            pointHoverBorderColor: "#7b95b5",
+            // pointHoverBorderWidth: 2,
+            // pointRadius: 1,
+            // pointHitRadius: 10,
+            data: cases
+            // fill: false
+          },
+          {
+            label: "Recovered",
+            // lineTension: 0.1,
+            borderColor: "#3b8d68",
+            backgroundColor: "#3b8d68",
+            pointBorderColor: "#3b8d68",
+            pointBackgroundColor: "#fff",
+            pointHoverBackgroundColor: "#3b8d68",
+            pointHoverBorderColor: "#3b8d68",
+            borderCapStyle: "butt",
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: "miter",
+            // pointBorderWidth: 1,
+            // pointHoverRadius: 5,
+
+            // pointHoverBorderWidth: 2,
+            // pointRadius: 1,
+            // pointHitRadius: 10,
+            data: recovered,
+            fill: true
+          },
+          {
+            label: "Deaths",
+            // lineTension: 0.1,
+            backgroundColor: `#e64d4d`,
+            borderColor: `#e64d4d`,
+            borderCapStyle: "butt",
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: "miter",
+            pointBorderColor: `#e64d4d`,
+            pointBackgroundColor: "#fff",
+            // pointBorderWidth: 1,
+            // pointHoverRadius: 5,
+            pointHoverBackgroundColor: `#e64d4d`,
+            pointHoverBorderColor: `#e64d4d`,
+            // pointHoverBorderWidth: 2,
+            // pointRadius: 1,
+            // pointHitRadius: 10,
+            fill: true,
+            data: deaths
+          }
+        ]
+      }
     });
+  };
+  componentDidMount() {
+    this.setData();
   }
   componentDidUpdate(prevProps) {
     if (prevProps !== this.props) {
-      let deaths = this.props.timeline.map(el => {
-        return el.deaths;
-      });
-
-      let cases = this.props.timeline.map(el => {
-        return el.cases;
-      });
-
-      let recovered = this.props.timeline.map(el => {
-        return el.recovered;
-      });
-
-      let dates = this.props.timeline.map(el => {
-        return moment(el.date).format("MMM D");
-      });
-
-      this.setState({
-        middle: dates[Math.round((dates.length - 1) / 2)],
-        chartData: {
-          labels: dates,
-
-          datasets: [
-            {
-              label: "Cases",
-              // lineTension: 0.1,
-
-              backgroundColor: "#7b95b5",
-              borderColor: "#7b95b5",
-              borderCapStyle: "butt",
-              borderDash: [],
-              borderDashOffset: 0.0,
-              borderJoinStyle: "miter",
-              pointBorderColor: "#7b95b5",
-              pointBackgroundColor: "#fff",
-              // pointBorderWidth: 1,
-              // pointHoverRadius: 5,
-              pointHoverBackgroundColor: "#7b95b5",
-              pointHoverBorderColor: "#7b95b5",
-              // pointHoverBorderWidth: 2,
-              // pointRadius: 1,
-              // pointHitRadius: 10,
-              data: cases
-              // fill: false
-            },
-            {
-              label: "Recovered",
-              // lineTension: 0.1,
-              borderColor: "#3b8d68",
-              backgroundColor: "#3b8d68",
-              pointBorderColor: "#3b8d68",
-              pointBackgroundColor: "#fff",
-              pointHoverBackgroundColor: "#3b8d68",
-              pointHoverBorderColor: "#3b8d68",
-              borderCapStyle: "butt",
-              borderDash: [],
-              borderDashOffset: 0.0,
-              borderJoinStyle: "miter",
-              // pointBorderWidth: 1,
-              // pointHoverRadius: 5,
-
-              // pointHoverBorderWidth: 2,
-              // pointRadius: 1,
-              // pointHitRadius: 10,
-              data: recovered,
-              fill: true
-            },
-            {
-              label: "Deaths",
-              // lineTension: 0.1,
-              backgroundColor: `#e64d4d`,
-              borderColor: `#e64d4d`,
-              borderCapStyle: "butt",
-              borderDash: [],
-              borderDashOffset: 0.0,
-              borderJoinStyle: "miter",
-              pointBorderColor: `#e64d4d`,
-              pointBackgroundColor: "#fff",
-              // pointBorderWidth: 1,
-              // pointHoverRadius: 5,
-              pointHoverBackgroundColor: `#e64d4d`,
-              pointHoverBorderColor: `#e64d4d`,
-              // pointHoverBorderWidth: 2,
-              // pointRadius: 1,
-              // pointHitRadius: 10,
-              fill: true,
-              data: deaths
-            }
-          ]
-        }
-      });
+      this.setData();
     }
   }
 
@@ -128,13 +124,13 @@ class Chart extends Component {
             scales: {
               xAxes: [
                 {
-                  type: "time",
-                  time: { unit: "day" },
-                  ticks: {
-                    autoSkip: true
-                    // maxTicksLimit: this.width > "400" ? 5 : 11,
-                    // min: this.width > "400" ? this.state.middle : ""
-                  },
+                  //   type: "time",
+                  //   time: { unit: "day" },
+                  //   // ticks: {
+                  //   //   autoSkip: true
+                  //   //   // maxTicksLimit: this.width > "400" ? 5 : 11,
+                  //   //   // min: this.width > "400" ? this.state.middle : ""
+                  //   // },
                   gridLines: {
                     color: "#f1f1f1"
                   }
