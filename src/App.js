@@ -38,7 +38,9 @@ class App extends Component {
       .get(baseURL)
       .then(res => {
         let filtered = res.data.filter(country => {
-          return country.country.toLowerCase().includes(this.state.search);
+          return country.country
+            .toLowerCase()
+            .includes(this.state.search.toLowerCase());
         });
         this.setState({
           countries: filtered
