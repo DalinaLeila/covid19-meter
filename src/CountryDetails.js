@@ -78,21 +78,23 @@ class CountryDetails extends Component {
               alt=""
             />
           ) : (
-            <img
-              className="flag"
-              width="50px"
-              height="40px"
-              src={require("./assets/flags/unknown.svg")}
-              alt=""
-            />
-            // <img
-            //   className="flag"
-            //   width="50px"
-            //   src={require(`./assets/flags/${countryCodes[
-            //     select.country
-            //   ].toLowerCase()}.svg`)}
-            //   alt=""
-            // />
+            <>
+              <img
+                className="flag"
+                width="50px"
+                height="40px"
+                src={require("./assets/flags/unknown.svg")}
+                alt=""
+              />
+              <img
+                className="flag"
+                width="50px"
+                src={require(`./assets/flags/${countryCodes[
+                  select.country
+                ].toLowerCase()}.svg`)}
+                alt={`${select.country}`}
+              />
+            </>
           )}
           <h1>{select.country}</h1>
         </div>

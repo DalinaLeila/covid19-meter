@@ -102,11 +102,11 @@ class App extends Component {
             />
           </div>
           <div className="right-view">
-            <Route
+            {/* <Route
               exact
               path="/"
               render={props => <Timer {...props} />}
-            ></Route>
+            ></Route> */}
             <Route
               exact
               path="/countries/:country"
