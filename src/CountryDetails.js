@@ -62,14 +62,14 @@ class CountryDetails extends Component {
 
   render() {
     const { timeline, select } = this.state;
-
+    let code = countryCodes[select.country];
     if (!select.cases && !select.deaths && !select.recovered) {
       return <div></div>;
     }
     return (
       <div id="details">
         <div className="flex-row flex-center center-text">
-          {!countryCodes[select.country] ? (
+          {!code ? (
             <img
               className="flag"
               width="50px"
@@ -89,9 +89,7 @@ class CountryDetails extends Component {
               <img
                 className="flag"
                 width="50px"
-                src={require(`./assets/flags/${countryCodes[
-                  select.country
-                ].toLowerCase()}.svg`)}
+                src={require(`./assets/flags/${code.toLowerCase()}.svg`)}
                 alt={`${select.country}`}
               />
             </>
