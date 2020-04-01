@@ -9,7 +9,7 @@ const Navigation = () => {
           width="40px"
           height="40px"
           src={require("./assets/virus.png")}
-          alt="coronavirus"
+          alt="coronavirus, covid19"
         />
         <Link href="#home">
           <h2>Covid19Meter</h2>

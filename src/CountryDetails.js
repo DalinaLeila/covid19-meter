@@ -75,17 +75,10 @@ class CountryDetails extends Component {
               width="50px"
               height="40px"
               src={require("./assets/flags/unknown.svg")}
-              alt=""
+              alt={`${select.country}`}
             />
           ) : (
             <>
-              <img
-                className="flag"
-                width="50px"
-                height="40px"
-                src={require("./assets/flags/unknown.svg")}
-                alt=""
-              />
               <img
                 className="flag"
                 width="50px"

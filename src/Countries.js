@@ -26,6 +26,8 @@ class Countries extends Component {
         </div>
         <div className="country-list">
           {this.props.countries.map((country, index) => {
+            let code = countryCodes[country.country];
+
             return (
               <Link
                 onClick={this.props.resetSearch}
@@ -35,30 +37,22 @@ class Countries extends Component {
               >
                 <div>
                   <div className="countryCard-wrapper flex-center">
-                    {!countryCodes[country.country] ? (
+                    {!code ? (
                       <img
                         className="flag"
                         width="40px"
                         height="30px"
                         src={require("./assets/flags/unknown.svg")}
-                        alt=""
+                        alt={`${country.country}`}
                       />
                     ) : (
                       <img
                         className="flag"
                         width="40px"
                         height="30px"
-                        src={require("./assets/flags/unknown.svg")}
-                        alt=""
+                        src={require(`./assets/flags/${code.toLowerCase()}.svg`)}
+                        alt={`${country.country}`}
                       />
-                      // <img
-                      //   className="flag"
-                      //   width="40px"
-                      //   src={require(`./assets/flags/${countryCodes[
-                      //     country.country
-                      //   ].toLowerCase()}.svg`)}
-                      //   alt=""
-                      // />
                     )}
                     <h5>{country.country}</h5>
                   </div>
