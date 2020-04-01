@@ -4,7 +4,8 @@ import "./App.css";
 const Rates = props => {
   return (
     <div className="rates">
-      <h3>{props.select.country}'s Inflection Rates</h3>
+      <h3>{props.select.country}'s Infection Rates</h3>
+      {/* {props.select.active + props.select.recovered + props.select.deaths} same as all cases*/}
       <div className="flex-container ">
         <div className="flex-item">
           <Rate color="#3b8d68">
@@ -19,14 +20,9 @@ const Rates = props => {
         </div>
         <div className="flex-item">
           <Rate color="#e64d4d">
-            {(
-              (props.select.deaths /
-                (props.select.deaths + props.select.recovered)) *
-              100
-            ).toFixed(2)}
-            %
+            {((props.select.deaths / props.select.cases) * 100).toFixed(2)}%
           </Rate>
-          <h4>Death Rate</h4>
+          <h4>Fatality Rate</h4>
         </div>
         <div className="flex-item">
           <Rate color="#efb81f">
@@ -37,11 +33,13 @@ const Rates = props => {
         <div className="flex-item">
           <Rate color="#7b95b5">
             {(
-              100 -
-              (props.select.critical / props.select.active) * 100
+              ((props.select.active - props.select.critical) /
+                props.select.active) *
+              100
             ).toFixed(2)}
             %
           </Rate>
+
           <h4>Mild Cases</h4>
         </div>
       </div>

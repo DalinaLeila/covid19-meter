@@ -93,7 +93,7 @@ class CountryDetails extends Component {
           <Main className="col" color="var(--mainBlue)">
             <div>
               <h4>Cases</h4>
-              <div className="flex-col">
+              <div className="flex-col center">
                 <h2>{this.numberWithCommas(select.cases)}</h2>
                 <p> {this.numberWithCommas(select.todayCases)} Today</p>
               </div>
@@ -102,7 +102,7 @@ class CountryDetails extends Component {
           <Main className="col" color="var(--mainRed)">
             <div>
               <h4>Deaths</h4>
-              <div className="flex-col">
+              <div className="flex-col center">
                 <h2>{this.numberWithCommas(select.deaths)}</h2>
                 <p>{this.numberWithCommas(select.todayDeaths)} Today</p>
               </div>
@@ -111,7 +111,7 @@ class CountryDetails extends Component {
           <Main className="col" color="var(--green)">
             <div>
               <h4>Recovered</h4>
-              <div className="flex-col">
+              <div className="flex-col center">
                 <h2>{this.numberWithCommas(select.recovered)}</h2>
                 <p>
                   {this.numberWithCommas(

@@ -4,9 +4,19 @@ import { Bar, Line, Pie } from "react-chartjs-2";
 import "./App.css";
 class Chart extends Component {
   state = {
-    chartData: {}
+    chartData: {},
+    middle: ""
   };
 
+  componentDidMount() {
+    let dates = this.props.timeline.map(el => {
+      return moment(el.date).format("MMM D");
+    });
+
+    this.setState({
+      middle: dates[Math.round((dates.length - 1) / 2)]
+    });
+  }
   componentDidUpdate(prevProps) {
     if (prevProps !== this.props) {
       let deaths = this.props.timeline.map(el => {
@@ -22,10 +32,11 @@ class Chart extends Component {
       });
 
       let dates = this.props.timeline.map(el => {
-        return moment(el.date).format("MMM Do");
+        return moment(el.date).format("MMM D");
       });
 
       this.setState({
+        middle: dates[Math.round((dates.length - 1) / 2)],
         chartData: {
           labels: dates,
 
@@ -104,9 +115,10 @@ class Chart extends Component {
   render() {
     return (
       <div className="chart">
-        <h3>{this.props.select.country}'s Inflection History</h3>
+        <h3>{this.props.select.country}'s Infection History</h3>
 
         <Line
+          className="desktop-hide"
           data={this.state.chartData}
           options={{
             legend: {
@@ -116,6 +128,13 @@ class Chart extends Component {
             scales: {
               xAxes: [
                 {
+                  type: "time",
+                  time: { unit: "day" },
+                  ticks: {
+                    autoSkip: true
+                    // maxTicksLimit: this.width > "400" ? 5 : 11,
+                    // min: this.width > "400" ? this.state.middle : ""
+                  },
                   gridLines: {
                     color: "#f1f1f1"
                   }
@@ -123,6 +142,9 @@ class Chart extends Component {
               ],
               yAxes: [
                 {
+                  ticks: {
+                    autoSkip: true
+                  },
                   gridLines: {
                     color: "#f1f1f1"
                   },

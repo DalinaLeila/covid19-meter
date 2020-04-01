@@ -50,6 +50,9 @@
   color: var(--mainGrey);
 }
 @media only screen and (max-width: 1441px) {
+  .phone-hide {
+    display: none !important;
+  }
   .left-view {
     width: 100vw;
     align-items: center;
@@ -117,12 +120,13 @@
   .countryCard {
     padding: 0 10px;
     display: flex;
+    text-decoration: none;
     justify-content: space-between;
     border-bottom: 1px solid #d2d2d2;
   }
 
   .countryCard p {
-    font-weight: lighter;
+    font-weight: 700;
     font-size: small;
   }
 
@@ -146,7 +150,7 @@
   }
 
   .phone-hide {
-    display: none;
+    display: none !important;
   }
 
   .search-function {
@@ -176,6 +180,13 @@
     /* align-items: center; */
   }
 
+  .center {
+    align-items: center;
+  }
+
+  .center h2 {
+    margin-right: 20px;
+  }
   .flex-space-between {
     justify-content: space-between;
   }
@@ -219,7 +230,8 @@
   }
 
   canvas {
-    width: 100%;
+    width: 100% !important;
+    height: 100% !important;
     margin-bottom: 20px;
   }
   .flex-container {
