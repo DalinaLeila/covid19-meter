@@ -22,7 +22,7 @@ class CountryDetails extends Component {
 
   getTimeline = () => {
     let nameTimeline = this.props.match.params.country.toLowerCase();
-    const baseURL = `http://api.coronastatistics.live/timeline/${checkCountryCode(
+    const baseURL = `https://api.coronastatistics.live/timeline/${checkCountryCode(
       nameTimeline
     )}`;
 
@@ -38,7 +38,7 @@ class CountryDetails extends Component {
   };
 
   getCountry = () => {
-    const baseURL = `http://api.coronastatistics.live/countries/${this.props.match.params.country}`;
+    const baseURL = `https://api.coronastatistics.live/countries/${this.props.match.params.country}`;
 
     axios
       .get(baseURL)

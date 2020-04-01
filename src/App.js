@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   getOverview = () => {
-    const baseURL = "http://api.coronastatistics.live/all";
+    const baseURL = "https://api.coronastatistics.live/all";
     axios
       .get(baseURL)
       .then(res => {
@@ -33,7 +33,7 @@ class App extends Component {
   };
 
   getCountryData = () => {
-    const baseURL = "http://api.coronastatistics.live/countries";
+    const baseURL = "https://api.coronastatistics.live/countries";
     axios
       .get(baseURL)
       .then(res => {
@@ -48,7 +48,7 @@ class App extends Component {
   };
 
   sortCountryData = () => {
-    const baseURL = `http://api.coronastatistics.live/countries?sort=${this.state.sort}`;
+    const baseURL = `https://api.coronastatistics.live/countries?sort=${this.state.sort}`;
     axios
       .get(baseURL)
       .then(res => {
