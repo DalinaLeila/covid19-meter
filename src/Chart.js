@@ -104,14 +104,11 @@ class Chart extends Component {
   render() {
     return (
       <div className="chart">
+        <h3>{this.props.select.country}'s Inflection History</h3>
+
         <Line
           data={this.state.chartData}
           options={{
-            title: {
-              display: true,
-              text: "Infections History",
-              fontSize: 20
-            },
             legend: {
               display: true,
               position: "bottom"

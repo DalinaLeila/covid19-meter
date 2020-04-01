@@ -8,7 +8,6 @@ class Countries extends Component {
   render() {
     return (
       <div className="container flex-col">
-        {/* <div className="wrapper"> */}
         <div className="search-function">
           <input
             name="search"
@@ -27,7 +26,6 @@ class Countries extends Component {
         </div>
         <div className="country-list">
           {this.props.countries.map((country, index) => {
-            console.log(countryCodes[country.country]);
             return (
               <Link
                 onClick={this.props.resetSearch}
@@ -36,11 +34,12 @@ class Countries extends Component {
                 to={`/countries/${country.country}`}
               >
                 <div>
-                  <div className="countryCard-wrapper">
+                  <div className="countryCard-wrapper flex-center">
                     {!countryCodes[country.country] ? (
                       <img
                         className="flag"
                         width="40px"
+                        height="30px"
                         src={require("./assets/flags/unknown.svg")}
                         alt=""
                       />
@@ -48,6 +47,7 @@ class Countries extends Component {
                       <img
                         className="flag"
                         width="40px"
+                        height="30px"
                         src={require("./assets/flags/unknown.svg")}
                         alt=""
                       />
@@ -86,7 +86,6 @@ class Countries extends Component {
             );
           })}
         </div>
-        {/* </div> */}
       </div>
     );
   }

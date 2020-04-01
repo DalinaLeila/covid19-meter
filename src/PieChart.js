@@ -29,10 +29,10 @@ class PieChart extends Component {
   }
 
   render() {
-    console.log(this.props.select);
-
     return (
       <div className="pie-chart">
+        <h3>{this.props.select.country}'s Case Distribution</h3>
+
         <Pie
           height={200}
           width={400}

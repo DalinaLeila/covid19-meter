@@ -29,7 +29,6 @@ class CountryDetails extends Component {
     axios
       .get(baseURL)
       .then(res => {
-        console.log(res, "res");
         this.setState({
           timeline: res.data.data.timeline
         });
@@ -63,19 +62,18 @@ class CountryDetails extends Component {
 
   render() {
     const { timeline, select } = this.state;
-    console.log(timeline);
-    console.log(select);
 
     if (!select.cases && !select.deaths && !select.recovered) {
       return <div></div>;
     }
     return (
       <div id="details">
-        <div className="flex-row flex-center">
+        <div className="flex-row flex-center center-text">
           {!countryCodes[select.country] ? (
             <img
               className="flag"
               width="50px"
+              height="40px"
               src={require("./assets/flags/unknown.svg")}
               alt=""
             />
@@ -83,6 +81,7 @@ class CountryDetails extends Component {
             <img
               className="flag"
               width="50px"
+              height="40px"
               src={require("./assets/flags/unknown.svg")}
               alt=""
             />
@@ -139,7 +138,7 @@ class CountryDetails extends Component {
           />
           <Rates select={select} />
         </div>
-        <Chart timeline={timeline} />
+        <Chart timeline={timeline} select={select} />
       </div>
     );
   }
