@@ -169,6 +169,7 @@
     padding: 10px 20px;
     width: 200px;
     border-radius: 5px;
+    border: none;
   }
   */
   
@@ -347,6 +348,7 @@
   }
 
   .container {
+    height: 100%;
     display: flex;
     justify-content: space-between;
     /* flex-direction: column; */
@@ -362,7 +364,7 @@
   }
 
   .country-list {
-    height: 250px;
+    height: 100% !important;
     background-color: var(--mainWhite);
     /* width: 400px; */
     overflow-y: scroll;
@@ -385,6 +387,12 @@
     padding: 10px 20px;
     width: 200px;
     border-radius: 5px;
+    border: none;
+  }
+
+  input:focus,
+  select:focus {
+    outline: none;
   }
   .chart {
     background-color: var(--mainWhite);
@@ -483,6 +491,7 @@
     width: 45%;
   }
   .left-view {
+    height: 100vh;
     overflow: hidden;
     width: auto;
 

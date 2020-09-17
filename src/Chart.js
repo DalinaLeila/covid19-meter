@@ -4,23 +4,23 @@ import { Bar, Line, Pie } from "react-chartjs-2";
 import "./App.css";
 class Chart extends Component {
   state = {
-    chartData: {}
+    chartData: {},
   };
 
   setData = () => {
-    let deaths = this.props.timeline.map(el => {
+    let deaths = this.props.timeline.map((el) => {
       return el.deaths;
     });
 
-    let cases = this.props.timeline.map(el => {
+    let cases = this.props.timeline.map((el) => {
       return el.cases;
     });
 
-    let recovered = this.props.timeline.map(el => {
+    let recovered = this.props.timeline.map((el) => {
       return el.recovered;
     });
 
-    let dates = this.props.timeline.map(el => {
+    let dates = this.props.timeline.map((el) => {
       return moment(el.date).format("MMM D");
     });
 
@@ -42,19 +42,12 @@ class Chart extends Component {
             borderJoinStyle: "miter",
             pointBorderColor: "#7b95b5",
             pointBackgroundColor: "#fff",
-            // pointBorderWidth: 1,
-            // pointHoverRadius: 5,
             pointHoverBackgroundColor: "#7b95b5",
             pointHoverBorderColor: "#7b95b5",
-            // pointHoverBorderWidth: 2,
-            // pointRadius: 1,
-            // pointHitRadius: 10,
-            data: cases
-            // fill: false
+            data: cases,
           },
           {
             label: "Recovered",
-            // lineTension: 0.1,
             borderColor: "#3b8d68",
             backgroundColor: "#3b8d68",
             pointBorderColor: "#3b8d68",
@@ -65,18 +58,12 @@ class Chart extends Component {
             borderDash: [],
             borderDashOffset: 0.0,
             borderJoinStyle: "miter",
-            // pointBorderWidth: 1,
-            // pointHoverRadius: 5,
 
-            // pointHoverBorderWidth: 2,
-            // pointRadius: 1,
-            // pointHitRadius: 10,
             data: recovered,
-            fill: true
+            fill: true,
           },
           {
             label: "Deaths",
-            // lineTension: 0.1,
             backgroundColor: `#e64d4d`,
             borderColor: `#e64d4d`,
             borderCapStyle: "butt",
@@ -85,18 +72,13 @@ class Chart extends Component {
             borderJoinStyle: "miter",
             pointBorderColor: `#e64d4d`,
             pointBackgroundColor: "#fff",
-            // pointBorderWidth: 1,
-            // pointHoverRadius: 5,
             pointHoverBackgroundColor: `#e64d4d`,
             pointHoverBorderColor: `#e64d4d`,
-            // pointHoverBorderWidth: 2,
-            // pointRadius: 1,
-            // pointHitRadius: 10,
             fill: true,
-            data: deaths
-          }
-        ]
-      }
+            data: deaths,
+          },
+        ],
+      },
     });
   };
   componentDidMount() {
@@ -119,30 +101,23 @@ class Chart extends Component {
           options={{
             legend: {
               display: true,
-              position: "bottom"
+              position: "bottom",
             },
             scales: {
               xAxes: [
                 {
-                  //   type: "time",
-                  //   time: { unit: "day" },
-                  //   // ticks: {
-                  //   //   autoSkip: true
-                  //   //   // maxTicksLimit: this.width > "400" ? 5 : 11,
-                  //   //   // min: this.width > "400" ? this.state.middle : ""
-                  //   // },
                   gridLines: {
-                    color: "#f1f1f1"
-                  }
-                }
+                    color: "#f1f1f1",
+                  },
+                },
               ],
               yAxes: [
                 {
                   ticks: {
-                    autoSkip: true
+                    autoSkip: true,
                   },
                   gridLines: {
-                    color: "#f1f1f1"
+                    color: "#f1f1f1",
                   },
 
                   ticks: {
@@ -152,14 +127,14 @@ class Chart extends Component {
                       value = value.split(/(?=(?:...)*$)/);
                       value = value.join(",");
                       return value;
-                    }
-                  }
-                }
-              ]
+                    },
+                  },
+                },
+              ],
             },
             responsive: true,
             maintainAspectRatio: true,
-            responsiveAnimationDuration: 0.3
+            responsiveAnimationDuration: 0.3,
           }}
         />
       </div>

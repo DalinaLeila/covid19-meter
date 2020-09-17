@@ -13,11 +13,11 @@ import { Row, Col, Container } from "react-bootstrap";
 class CountryDetails extends Component {
   state = {
     timeline: [],
-    select: []
+    select: [],
   };
 
   numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return x?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
   getTimeline = () => {
@@ -28,12 +28,12 @@ class CountryDetails extends Component {
 
     axios
       .get(baseURL)
-      .then(res => {
+      .then((res) => {
         this.setState({
-          timeline: res.data.data.timeline
+          timeline: res.data.data.timeline,
         });
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
 
   getCountry = () => {
@@ -41,12 +41,12 @@ class CountryDetails extends Component {
 
     axios
       .get(baseURL)
-      .then(res => {
+      .then((res) => {
         this.setState({
-          select: res.data
+          select: res.data,
         });
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.country !== this.props.match.params.country) {

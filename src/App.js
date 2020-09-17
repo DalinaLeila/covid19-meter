@@ -13,66 +13,66 @@ class App extends Component {
     overview: [],
     countries: [],
     search: "",
-    sort: "cases"
+    sort: "cases",
   };
 
   numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return x?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
   getOverview = () => {
     const baseURL = "https://api.coronastatistics.live/all";
     axios
       .get(baseURL)
-      .then(res => {
+      .then((res) => {
         this.setState({
-          overview: res.data
+          overview: res.data,
         });
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
 
   getCountryData = () => {
     const baseURL = "https://api.coronastatistics.live/countries";
     axios
       .get(baseURL)
-      .then(res => {
-        let filtered = res.data.filter(country => {
+      .then((res) => {
+        let filtered = res.data.filter((country) => {
           return country.country
             .toLowerCase()
             .includes(this.state.search.toLowerCase());
         });
         this.setState({
-          countries: filtered
+          countries: filtered,
         });
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
 
   sortCountryData = () => {
     const baseURL = `https://api.coronastatistics.live/countries?sort=${this.state.sort}`;
     axios
       .get(baseURL)
-      .then(res => {
+      .then((res) => {
         let sorted = res.data.sort((a, b) => {
           return b[this.state.sort] - a[this.state.sort];
         });
         this.setState({
           countries: sorted,
-          search: ""
+          search: "",
         });
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
 
-  handleInput = e => {
+  handleInput = (e) => {
     this.setState({ [e.target.name]: e.target.value });
     e.target.name === "search" ? this.getCountryData() : this.sortCountryData();
   };
 
   resetSearch = () => {
     this.setState({
-      search: ""
+      search: "",
     });
   };
   componentDidMount() {
@@ -104,16 +104,11 @@ class App extends Component {
             />
           </div>
           <div className="right-view">
-            {/* <Route
-              exact
-              path="/"
-              render={props => <Timer {...props} />}
-            ></Route> */}
             <Route
               exact
               path="/countries/:country"
-              render={props => <CountryDetails {...props} />}
-            ></Route>
+              render={(props) => <CountryDetails {...props} />}
+            />
           </div>
         </div>
       </div>

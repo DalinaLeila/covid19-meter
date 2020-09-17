@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { Hr, Main } from "./Hr";
 import { Row, Col, Container } from "react-bootstrap";
 
-const MainOverview = props => {
-  console.log(props);
+const MainOverview = (props) => {
   return (
     <div className="containerOverview">
       <Main overallCard color="var(--mainBlue)">
