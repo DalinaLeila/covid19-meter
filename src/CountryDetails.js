@@ -98,7 +98,12 @@ class CountryDetails extends Component {
               <h4>Cases</h4>
               <div className="flex-col center">
                 <h2>{this.numberWithCommas(select.cases)}</h2>
-                <p> {this.numberWithCommas(select.todayCases)} Today</p>
+                <p>
+                  {" "}
+                  {this.numberWithCommas(select.todayCases)
+                    ? `${this.numberWithCommas(select.todayCases)} Today`
+                    : ""}
+                </p>
               </div>
             </div>
           </Main>
@@ -107,7 +112,11 @@ class CountryDetails extends Component {
               <h4>Deaths</h4>
               <div className="flex-col center">
                 <h2>{this.numberWithCommas(select.deaths)}</h2>
-                <p>{this.numberWithCommas(select.todayDeaths)} Today</p>
+                <p>
+                  {this.numberWithCommas(select.todayDeaths)
+                    ? `${this.numberWithCommas(select.todayDeaths)} Today`
+                    : ""}
+                </p>
               </div>
             </div>
           </Main>
@@ -119,8 +128,11 @@ class CountryDetails extends Component {
                 <p>
                   {this.numberWithCommas(
                     select.cases - select.deaths - select.recovered
-                  )}{" "}
-                  Remaining
+                  )
+                    ? `${this.numberWithCommas(
+                        select.cases - select.deaths - select.recovered
+                      )}  Remaining`
+                    : ""}
                 </p>
               </div>
             </div>

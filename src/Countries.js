@@ -69,10 +69,18 @@ class Countries extends Component {
                 </div>
                 <div className="today-countryCard ">
                   <p className="cases">
-                    +{this.props.numberWithCommas(country.todayCases)} Cases
+                    {this.props.numberWithCommas(country.todayCases)
+                      ? `+ ${this.props.numberWithCommas(
+                          country.todayCases
+                        )} Cases`
+                      : ""}
                   </p>
                   <p className="deaths">
-                    +{this.props.numberWithCommas(country.todayDeaths)} Deaths
+                    {this.props.numberWithCommas(country.todayCases)
+                      ? `+ ${this.props.numberWithCommas(
+                          country.todayDeaths
+                        )} Deaths`
+                      : ""}
                   </p>
                 </div>
               </Link>
