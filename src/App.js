@@ -108,7 +108,7 @@ class App extends Component {
           <div className="right-view">
             <Route
               exact
-              path="/countries/:country"
+              path="/:country"
               render={(props) => <CountryDetails {...props} />}
             />
           </div>

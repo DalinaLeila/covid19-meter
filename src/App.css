@@ -509,6 +509,7 @@
   }
 
   .dashboard {
-    justify-content: space-around;
+    margin: 0 30px;
+    justify-content: space-between;
   }
 }

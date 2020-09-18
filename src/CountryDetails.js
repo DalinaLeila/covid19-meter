@@ -38,7 +38,9 @@ class CountryDetails extends Component {
   };
 
   getCountry = () => {
-    const baseURL = `https://api.coronastatistics.live/countries/${this.props.match.params.country}`;
+    const countryCode = this.props.match.params.country;
+
+    const baseURL = `https://api.coronastatistics.live/countries/${countryCode}`;
 
     axios
       .get(baseURL)

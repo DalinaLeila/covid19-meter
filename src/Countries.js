@@ -32,7 +32,7 @@ class Countries extends Component {
                 onClick={this.props.resetSearch}
                 className="countryCard"
                 key={index}
-                to={`/countries/${country.country}`}
+                to={`/${country.country}`}
               >
                 <div>
                   <div className="countryCard-wrapper flex-center">
