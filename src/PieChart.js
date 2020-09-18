@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import moment from "moment";
-import { Bar, Line, Pie } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
 import "./App.css";
 class PieChart extends Component {
   state = {
-    chartData: {}
+    chartData: {},
   };
 
   setData = () => {
@@ -16,13 +15,13 @@ class PieChart extends Component {
             data: [
               this.props.select.critical,
               this.props.select.recovered,
-              this.props.select.deaths
+              this.props.select.deaths,
             ],
             backgroundColor: ["#efb81f", "#3b8d68", "#e64d4d"],
-            hoverBackgroundColor: ["#efb81f", "#3b8d68", "#e64d4d"]
-          }
-        ]
-      }
+            hoverBackgroundColor: ["#efb81f", "#3b8d68", "#e64d4d"],
+          },
+        ],
+      },
     });
   };
   componentDidMount() {
@@ -50,9 +49,9 @@ class PieChart extends Component {
             legend: {
               position: "left",
               labels: {
-                boxWidth: 10
-              }
-            }
+                boxWidth: 10,
+              },
+            },
             // legend: {
             //   display: true,
             //   position: "top"

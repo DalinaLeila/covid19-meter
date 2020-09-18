@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+
 import Chart from "./Chart";
 import PieChart from "./PieChart";
 import { countryCodes } from "./checkCountryCode";
@@ -7,8 +7,8 @@ import Rates from "./Rates";
 import axios from "axios";
 import "./App.css";
 import { checkCountryCode } from "./checkCountryCode";
-import { Hr, Main } from "./Hr";
-import { Row, Col, Container } from "react-bootstrap";
+import { Main } from "./Hr";
+import { Row } from "react-bootstrap";
 
 class CountryDetails extends Component {
   state = {

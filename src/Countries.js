@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { Switch, Route, Link } from "react-router-dom";
-import CountryDetails from "./CountryDetails";
+import { Link } from "react-router-dom";
 import "./App.css";
-import MainOverview from "./mainOverview";
 import { countryCodes } from "./checkCountryCode";
 
 class Countries extends Component {
