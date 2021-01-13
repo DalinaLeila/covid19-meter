@@ -1,1 +1,1 @@
-COVID 19 METER - Kepp track of all cases 
+COVID 19 METER - Keep track of all cases 
